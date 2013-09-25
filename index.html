@@ -52,11 +52,11 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-09-25T05:35:44.000Z"><a href="/2013/09/25/eclipse-egit-github(git9)/">9月/25/2013</a></time>
+        <time datetime="2013-09-25T05:35:44.000Z"><a href="/2013/09/25/eclipse-egit-github_git9/">9月/25/2013</a></time>
       
       
   
-    <h1 class="title"><a href="/2013/09/25/eclipse-egit-github(git9)/">Eclipse-egit-github(git9)</a></h1>
+    <h1 class="title"><a href="/2013/09/25/eclipse-egit-github_git9/">Eclipse-egit-github(git9)</a></h1>
   
 
     </header>
@@ -67,15 +67,15 @@
 <h2>安装和配置</h2>
 <ul>
 <li>首先是在eclipse里安装插件egit,地址是<a href="http://download.eclipse.org/egit/updates" target="_blank">http://download.eclipse.org/egit/updates</a><ul>
-<li>具体的做法是选 Help-&gt;Install New Software-&gt;弹出窗口右上 add -&gt;弹出窗口 Name: egit(随意） Location: <a href="http://download.eclipse.org/egit/updates" target="_blank">http://download.eclipse.org/egit/updates</a><br>写好后大概是这个样子：<br><img src="image\blog\Eclipse-egit-github\1.png" alt="图1"></li>
+<li>具体的做法是选 Help-&gt;Install New Software-&gt;弹出窗口右上 add -&gt;弹出窗口 Name: egit(随意） Location: <a href="http://download.eclipse.org/egit/updates" target="_blank">http://download.eclipse.org/egit/updates</a><br>写好后大概是这个样子：<br><img src="http://dadandmum.github.io/image/blog/Eclipse-egit-github/1.PNG" alt="图1"></li>
 <li>点ok后它会pend和analyse一段时间，会要等一下，之后把弹出来的Eclipse Git Teamwork Provider 和 JGit 都勾上，无脑next就可以了。</li>
 <li>有时候会出现有些包已经下载过或者不兼容的情况，最简单的方法就是把出错的包去掉，不过可能会丢失某些功能，所以想折腾的话还是google一下吧。</li>
 </ul>
 </li>
 <li>安装好后，打开window-&gt;perference 在左上搜ssh2，找到SSH2点开进行配置。<ul>
-<li>General 中的SSH2 home 指定了存放钥匙的位置，如果是不想折腾的话就存默认的C盘吧，反正不占空间<br><img src="image\blog\Eclipse-egit-github\2.png" alt="General"></li>
-<li>在Key Management 中点Generate RSA Key，你一直点它会不断的生成不同的，玩够了之后就点Save Private Key，然后生成的秘钥就会自动的保存到General指定的那个位置了。<br>(一定要记得保存啊，然后去上面说到那个C盘下地址看看有没有文件)，<br>(这里注意，用git bash 命令行生成的秘钥Comment用的是用户的邮箱，这里是RSA-1024，这个问题暂时不懂)<br><img src="image\blog\Eclipse-egit-github\3.png" alt="Key Management"></li>
-<li>之后把得到的秘钥复制下来，在你的github(git9)账户上登记一下这个账号。<br>登记的地方是用户下的Edit Your Profile 里的SSH Key<br><img src="image\blog\Eclipse-egit-github\4.png" alt="Github SSH Key"><br><img src="image\blog\Eclipse-egit-github\5.png" alt="Git9 SSH Key">      </li>
+<li>General 中的SSH2 home 指定了存放钥匙的位置，如果是不想折腾的话就存默认的C盘吧，反正不占空间<br><img src="http://dadandmum.github.io/image/blog/Eclipse-egit-github/2.PNG" alt="General"></li>
+<li>在Key Management 中点Generate RSA Key，你一直点它会不断的生成不同的，玩够了之后就点Save Private Key，然后生成的秘钥就会自动的保存到General指定的那个位置了。<br>(一定要记得保存啊，然后去上面说到那个C盘下地址看看有没有文件)，<br>(这里注意，用git bash 命令行生成的秘钥Comment用的是用户的邮箱，这里是RSA-1024，这个问题暂时不懂)<br><img src="http://dadandmum.github.io/image/blog/Eclipse-egit-github/3.PNG" alt="Key Management"></li>
+<li>之后把得到的秘钥复制下来，在你的github(git9)账户上登记一下这个秘钥。<br>登记的地方是用户下的Edit Your Profile 里的SSH Key<br><img src="http://dadandmum.github.io/image/blog/Eclipse-egit-github/4.PNG" alt="Github SSH Key"><br><img src="http://dadandmum.github.io/image/blog/Eclipse-egit-github/5.PNG" alt="Git9 SSH Key">      </li>
 <li>点击new key，title你记得就好，key是把刚才复制的秘钥粘进去。</li>
 </ul>
 </li>
@@ -91,12 +91,12 @@
 <h2>克隆项目</h2>
 <ul>
 <li>从网上克隆一个项目到本地<ul>
-<li>首先打开Git Respositories 视角，就是Window-&gt;Show View-&gt;Git Respositories 然后这个页面就会出现在Eclipse的某个角落<br><img src="image\blog\Eclipse-egit-github\11.png" alt="Git Respositories"></li>
-<li>点右上一群黄色按钮中有一个叫做 Clone a Git Respositories… 的东西，在弹出的对话框内，URL写你项目的URL<br>这个URL一般在项目管理页面可以找到。URL复制进去后，Host 和 Respository path会自动补全，Protocol根据你的URL选择对应的。<br>由于http/https 协议需要填用户名和密码，所以这里我们用SSH协议（这里选择后会给URL自动补全）<br><img src="image\blog\Eclipse-egit-github\12.png" alt="Clone"></li>
-<li>next之后系统会连接，这里连接可能会出现各种问题，最大的原因是秘钥没有配好导致的。<br>有错误可以自行google。成功的画面是这样的：<br><img src="image\blog\Eclipse-egit-github\13.png" alt="find"></li>
-<li>然后就是选一个地方存放代码，Remote name暂时没搞懂有什么作用，就按默认吧。<br><img src="image\blog\Eclipse-egit-github\14.png" alt="find"></li>
-<li>项目下载下来之后，可能还没有配项目文件什么的，所以无法在Eclipse导入，所以就自己新建一个Tomcat 工程，然后把.project之类的配置文件全部拷过去，然后改一下文件里的项目名字就好了。</li>
-<li>测试克隆是否成功，在项目里随便找一个文件，比如这里的README.md，在里面加几行代码，<br>然后在Package Explorer 工程文件夹上点右键-&gt;Team-&gt;Commit<br>Commit message 是必填的，最好注明版本号和修改内容，这个由各个开发团队而定。<br>然后选中你要提交更改的文件，点Commit and Push就好了。如果只是Commit的话并没有提交到网上，只是在本地保存了修改，还要手动push一下。<br><img src="image\blog\Eclipse-egit-github\15.png" alt="find"></li>
+<li>首先打开Git Respositories 视角，就是Window-&gt;Show View-&gt;Git Respositories 然后这个页面就会出现在Eclipse的某个角落<br><img src="http://dadandmum.github.io/image/blog/Eclipse-egit-github/11.PNG" alt="Git Respositories"></li>
+<li>点右上一群黄色按钮中有一个叫做 Clone a Git Respositories… 的东西，在弹出的对话框内，URL写你项目的URL<br>这个URL一般在项目管理页面可以找到。URL复制进去后，Host 和 Respository path会自动补全，Protocol根据你的URL选择对应的。<br>由于http/https 协议需要填用户名和密码，所以这里我们用SSH协议（这里选择后会给URL自动补全）<br><img src="http://dadandmum.github.io/image/blog/Eclipse-egit-github/12.PNG" alt="Clone"></li>
+<li>next之后系统会连接，这里连接可能会出现各种问题，很大概率是秘钥没有配好导致的。<br>有错误可以自行google。成功的画面是这样的：<br><img src="http://dadandmum.github.io/image/blog/Eclipse-egit-github/13.PNG" alt="find"></li>
+<li>然后就是选一个地方存放代码，Remote name是在多个地方更改项目作为区分用的，暂时就用默认名字吧。</li>
+<li>项目下载下来之后，可能还没有配项目文件什么的，所以无法在Eclipse导入，所以就自己新建一个Tomcat 工程，然后把.project之类的配置文件全部拷过去，然后改一下文件里的项目名字就好了。<br> 打入后是这样的，凡是和网上关联的文件夹/文件都会多个黄色的棒子，没有关联的会有问号，可以右键 Team-&gt;add to Index 添加关联<br><img src="http://dadandmum.github.io/image/blog/Eclipse-egit-github/14.PNG" alt="find"></li>
+<li>测试克隆是否成功，在项目里随便找一个文件，比如这里的README.md，在里面加几行代码，<br>然后在Package Explorer 工程文件夹上点右键-&gt;Team-&gt;Commit<br>Commit message 是必填的，最好注明版本号和修改内容，这个由各个开发团队而定。<br>然后选中你要提交更改的文件，点Commit and Push就好了。如果只是Commit的话并没有提交到网上，只是在本地保存了修改，还要手动push一下。<br><img src="http://dadandmum.github.io/image/blog/Eclipse-egit-github/15.PNG" alt="find"></li>
 <li>之后可以去网上项目管理页面查看是否提交成功。</li>
 </ul>
 </li>
@@ -133,10 +133,17 @@
     <div class="entry">
       
         <p><em>作为存档记录用</em></p>
-<p>下面先转两个例子<br>*例子1<a href="http://sebug.net/node/t-24" target="_blank">来自这里</a>，我把它直接复制粘贴过来了</p>
-<p>*例子2<a href="http://zipperary.com/2013/08/31/easy-markdown/" target="_blank">点这里</a>，这个例子更加详细些</p>
-<p>*一个比较详细的说明 <a href="http://wowubuntu.com/markdown/" target="_blank">这里</a></p>
-<p>*<a href="http://ghosertblog.github.io/mdeditor/" target="_blank">这个</a>看起来好像也有点用的样子。</p>
+<p>下面先转两个例子</p>
+<ul>
+<li><p><a href="http://sebug.net/node/t-24" target="_blank">例子1来自这里</a>，我把它直接复制粘贴过来了</p>
+</li>
+<li><p><a href="http://zipperary.com/2013/08/31/easy-markdown/" target="_blank">例子2点这里</a>，这个例子更加详细些</p>
+</li>
+<li><p><a href="http://wowubuntu.com/markdown/" target="_blank">一个比较详细的说明</a></p>
+</li>
+<li><p><a href="http://ghosertblog.github.io/mdeditor/" target="_blank">这个看起来好像也有点用的样子。</a></p>
+</li>
+</ul>
 <h1>例子1</h1>
 <figure class="highlight lang-markdown"><table><tr><td class="gutter"><pre>1
 2
@@ -344,9 +351,15 @@
   <h3 class="title">标签</h3>
   <ul class="entry">
   
+    <li><a href="/tags/eclipse plugins/">eclipse plugins</a><small>1</small></li>
+  
+    <li><a href="/tags/egit/">egit</a><small>1</small></li>
+  
     <li><a href="/tags/manual/">manual</a><small>1</small></li>
   
     <li><a href="/tags/markdown/">markdown</a><small>1</small></li>
+  
+    <li><a href="/tags/配置/">配置</a><small>1</small></li>
   
   </ul>
 </div>
@@ -358,7 +371,7 @@
 <div class="widget tagcloud">
   <h3 class="title">标签云</h3>
   <div class="entry">
-    <a href="/tags/manual/" style="font-size: NaNpx;">manual</a><a href="/tags/markdown/" style="font-size: NaNpx;">markdown</a>
+    <a href="/tags/eclipse plugins/" style="font-size: NaNpx;">eclipse plugins</a><a href="/tags/egit/" style="font-size: NaNpx;">egit</a><a href="/tags/manual/" style="font-size: NaNpx;">manual</a><a href="/tags/markdown/" style="font-size: NaNpx;">markdown</a><a href="/tags/配置/" style="font-size: NaNpx;">配置</a>
   </div>
 </div>
 
